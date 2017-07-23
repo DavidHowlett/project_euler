@@ -1,3 +1,5 @@
+mod fizz_buzz;
+
 fn p1()->i32{
     // If we list all the natural numbers below 10 that are multiples of 3 or 5,
     // we get 3, 5, 6 and 9. The sum of these multiples is 23.
@@ -31,7 +33,7 @@ fn p2()->i32{
     total
 }
 fn p3()->u64{
-    //The prime factors of 13195 are 5, 7, 13 and 29.
+    // The prime factors of 13195 are 5, 7, 13 and 29.
     // What is the largest prime factor of the number 600851475143 ?
     let mut x = 600851475143u64;
     for i in 1..10000000{
@@ -45,6 +47,7 @@ fn p3()->u64{
     return x
 }
 fn main(){
+    fizz_buzz::fizz_buzz();
     print!("{}\n", p1());
     print!("{}\n", p2());
     print!("{}\n", p3());
