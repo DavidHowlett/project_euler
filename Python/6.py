@@ -12,8 +12,8 @@ Find the difference between the sum of the squares of the first one hundred natu
 and the square of the sum.
 """
 
-x,y=0,0
+x, y = 0, 0
 for i in range(101):
-    x+=i
-    y+=i*i
-print (x*x-y)
+    x += i
+    y += i*i
+print(x*x-y)

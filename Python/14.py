@@ -1,4 +1,4 @@
-'''
+"""
 The following iterative sequence is defined for the set of positive integers:
 
 n to n/2 (n is even)
@@ -12,24 +12,24 @@ It can be seen that this sequence (starting at 13 and finishing at 1) contains 1
 Which starting number, under one million, produces the longest chain?
 
 NOTE: Once the chain starts the terms are allowed to go above one million.
-'''
+"""
 
 preCalc = {0: 0, 1: 0}
 
+
 def collatz(x):
     if x not in preCalc:
-        if x%2:
-            preCalc[x] = 1+collatz(x*3+1)
+        if x % 2:
+            preCalc[x] = 1 + collatz(x * 3 + 1)
         else:
-            preCalc[x] = 1+collatz(x//2)
+            preCalc[x] = 1 + collatz(x // 2)
     return preCalc[x]
 
-record = 1,0
-for i in range(1,1000000):
-    if collatz(i)>record[1]:
-        record = i,collatz(i)
+
+record = 1, 0
+for i in range(1, 1000000):
+    if collatz(i) > record[1]:
+        record = i, collatz(i)
 print(record[0])
 # took 55.4414356382241 seconds with brute force
-# took 1.976053 seconds with dynamic programmigng
-
-            
+# took 1.976053 seconds with dynamic programming
