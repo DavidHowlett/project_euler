@@ -46,9 +46,25 @@ fn p3()->u64{
     }
     return x
 }
+fn p4()->u32{
+    // A palindromic number reads the same both ways. The largest palindrome made
+    // from the product of two 2-digit numbers is 9009 = 91 × 99.
+    // Find the largest palindrome made from the product of two 3-digit numbers.
+    let mut biggest_palindrome = 0;
+    for i in 100..1000{
+        let sq = i*i;
+        if sq > biggest_palindrome{
+            biggest_palindrome = sq;
+        }
+    }
+    puts(biggest_palindrome.to_string());
+    return biggest_palindrome
+
+}
 fn main(){
     fizz_buzz::fizz_buzz();
     print!("{}\n", p1());
     print!("{}\n", p2());
     print!("{}\n", p3());
+    print!("{}\n", p4());
 }
