@@ -13,5 +13,5 @@ a, b = 0, 1
 while a < 4000000:
     if a % 2 == 0:
         total += a
-    a, b = b, a+b
+    a, b = b, a + b
 print(total)

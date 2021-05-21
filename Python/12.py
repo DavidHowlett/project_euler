@@ -16,11 +16,12 @@ We can see that 28 is the first triangle number to have over five divisors.
 
 What is the value of the first triangle number to have over five hundred divisors?
 """
-import primeTools
 import itertools
 
+import primeTools
+
 for i in itertools.count(1):
-    tri = i*(i+1)//2
+    tri = i * (i + 1) // 2
     if primeTools.numDivisorsOf(tri) > 500:
         print(tri)
         break

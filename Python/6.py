@@ -15,5 +15,5 @@ and the square of the sum.
 x, y = 0, 0
 for i in range(101):
     x += i
-    y += i*i
-print(x*x-y)
+    y += i * i
+print(x * x - y)

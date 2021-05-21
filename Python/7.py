@@ -7,7 +7,7 @@ What is the 10001st prime number?
 
 import math
 
-maxPrime = 200000;
+maxPrime = 200000
 primeToFind = 10001
 x = [True for i in range(maxPrime)]
 x[0] = x[1] = False  # manually set 0 and 1 to not be primes

@@ -34,8 +34,8 @@ for lineNumber in range(20):
             product = 1
             for distance in range(4):
                 try:
-                    x = columnNumber+direction[0]*distance
-                    y = lineNumber+direction[1]*distance
+                    x = columnNumber + direction[0] * distance
+                    y = lineNumber + direction[1] * distance
                     product *= grid[x][y]
                 except IndexError:
                     pass

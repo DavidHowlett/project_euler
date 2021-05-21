@@ -20,11 +20,15 @@ for i in range(1, 100):
         print(i)
 
 for i in range(1, 100):
-        print((i if i % 3 else 'fizz') if i % 5 else ('buzz' if i % 3 else 'fizzbuzz'))
+    print((i if i % 3 else 'fizz') if i % 5 else ('buzz' if i % 3 else 'fizzbuzz'))
 
-for i in range(1,100):print((i if i%3 else'fizz')if i%5else('buzz'if i%3else'fizzbuzz'))
+for i in range(1, 100):
+    print((i if i % 3 else 'fizz') if i % 5 else ('buzz' if i % 3 else 'fizzbuzz'))
 
-[print([['fizzbuz','fizz'],['buzz',i]][bool(i%3)][bool(i%5)])for i in range(1,100)]
-for i in range(1,100):print([['fizzbuz','fizz'],['buzz',i]][bool(i%3)][bool(i%5)])
-for i in range(1,100):print([[i,'buzz'],['fizz','fizzbuzz']][i%3==0][i%5==0])
-print([[i,'buzz'],['fizz','fizzbuzz']][i%3<1][i%5<1] for i in range(1,100))
+for i in range(1, 100):
+    print([['fizzbuzz', 'fizz'], ['buzz', i]][bool(i % 3)][bool(i % 5)])
+
+for i in range(1, 100):
+    print([[i, 'buzz'], ['fizz', 'fizzbuzz']][i % 3 == 0][i % 5 == 0])
+
+[print([[i, 'buzz'], ['fizz', 'fizzbuzz']][i % 3 == 0][i % 5 == 0]) for i in range(1, 100)]
