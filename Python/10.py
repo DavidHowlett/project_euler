@@ -4,5 +4,5 @@ Find the sum of all the primes below two million.
 """
 import primeTools
 
-print(sum(primeTools.primesLessThen(2000000)))
+print(sum(primeTools.primes_less_then(2000000)))
 # should be 142913828922

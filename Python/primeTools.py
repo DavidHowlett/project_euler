@@ -1,70 +1,69 @@
 import itertools
 import math
+from typing import List
 
-# for other problems I want to get an itterator that gives all the primes less then x
-
-knownPrimes = [2]
+known_primes: List[int] = [2]
 
 
-def primesLessThen(top):
-    'useing sieve of Eratosthenes'
-    global knownPrimes
-    isAPrime = [True for i in range(top)]
-    isAPrime[0] = isAPrime[1] = False  # manually set 0 and 1 to not be primes
+# for other problems I want to get an iterator that gives all the primes less then x
+def primes_less_then(top):
+    """using sieve of Eratosthenes"""
+    global known_primes
+    is_a_prime = [True] * top
+    is_a_prime[0] = is_a_prime[1] = False  # manually set 0 and 1 to not be primes
     for i in range(2, int(math.sqrt(top)) + 1):
-        if isAPrime[i]:
+        if is_a_prime[i]:
             for j in range(i, math.ceil(top / i)):
-                isAPrime[i * j] = False
-    localPrimes = [number for number in range(top) if isAPrime[number]]
-    if localPrimes[-1] > knownPrimes[-1]:
-        knownPrimes = localPrimes
-    return knownPrimes
+                is_a_prime[i * j] = False
+    local_primes = [number for number in range(top) if is_a_prime[number]]
+    if local_primes[-1] > known_primes[-1]:
+        known_primes = local_primes
+    return known_primes
 
 
 def primes():
-    'prime generator'
-    for prime in knownPrimes:
+    """prime generator"""
+    for prime in known_primes:
         yield prime
     for i in itertools.count(prime):
-        for prime in knownPrimes:
+        for prime in known_primes:
             if i % prime == 0:
                 break
             if prime * prime > i:
-                knownPrimes.append(i)
+                known_primes.append(i)
                 yield i
                 break
 
 
-def prime(x):
-    'finds the xth prime'
-    'not optimised much'
+def prime_no(x):
+    """finds the xth prime, has not been optimised much"""
     try:
-        return knownPrimes[x + 1]
+        return known_primes[x + 1]
     except IndexError:
         pass
-    primeGenerator = primes()
-    for i in range(x):
-        tmp = primeGenerator.__next__()
+    prime_generator = primes()
+    for _ in range(x):
+        tmp = prime_generator.__next__()
     return tmp
 
 
-def primeFactorsOf(x):
-    primeFactors = []
+def prime_factors_of(x):
+    prime_factors = []
     for prime in primes():
         occurrences = 0
         while x % prime == 0:
             x //= prime
             occurrences += 1
         if occurrences:
-            primeFactors.append((prime, occurrences))
+            prime_factors.append((prime, occurrences))
         if x == 1:
-            return primeFactors
+            return prime_factors
 
 
-def numDivisorsOf(x):
-    primeFactors = primeFactorsOf(x)
+def num_divisors_of(x):
+    prime_factors = prime_factors_of(x)
     result = 1
-    for prime in primeFactors:
+    for prime in prime_factors:
         result *= prime[1] + 1
     return result
 
@@ -72,5 +71,5 @@ def numDivisorsOf(x):
 if __name__ == '__main__':
     triNum = [1, 3, 6, 10, 15, 21, 28]
     for i in triNum:
-        print(primeFactorsOf(i))
-        print(numDivisorsOf(i))
+        print(prime_factors_of(i))
+        print(num_divisors_of(i))

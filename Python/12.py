@@ -22,6 +22,6 @@ import primeTools
 
 for i in itertools.count(1):
     tri = i * (i + 1) // 2
-    if primeTools.numDivisorsOf(tri) > 500:
+    if primeTools.num_divisors_of(tri) > 500:
         print(tri)
         break
