@@ -27,7 +27,7 @@ int main(){
 	int totalDivisors;
 	int toDivide;
 	struct pair primeDivisors[50];
-	
+
 	for(int i=2;;i++){
 		tri = i*(i+1)/2;
 		toDivide = tri;
